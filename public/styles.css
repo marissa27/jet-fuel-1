@@ -1,3 +1,40 @@
-body {
-  background-color: blue;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 70px;
+  background-color: #231F20;
+  color: #FFF;
+  font-size: 25px;
+}
+
+.form-section {
+  padding: 0px 20px;
+  background-color: #231F20;
+}
+
+.url-form {
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+}
+
+.url-form p {
+  display: inline;
+  font-size: 13px;
+}
+
+.form-fields {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.submit {
+  width: 100px;
+  border: none;
+  margin: 10px auto;
+  padding: 5px;
+  background-color: #FF9280;
+  color: #FFF;
 }
