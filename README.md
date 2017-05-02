@@ -22,9 +22,11 @@ http://localhost:3000/
 
 ### Prerequisites
 
-Node.js - Server-side Javascript. 
+Client-side: Javascript/jQuery 
 
-Express - A minimal and flexible web application framework that provides a robust set of features to develop web and mobile applicaitons. 
+Server-side: Postgres, Knex, Node.js, Express 
+
+
 # MAYBE TESTING OR WEBPACK STUFF 
 # MAYBE NODE.JS TUTORIAL STUFF???
 
