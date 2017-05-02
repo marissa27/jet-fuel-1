@@ -5,6 +5,7 @@
     <title>Jet Fuel</title>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,900|Slabo+27px" rel="stylesheet">
   </head>
   <body>
     <header>JetFuel</header>
@@ -12,16 +13,36 @@
     <form class="url-form">
       <input class="url-form form-fields" type="text" placeholder="Give me that URL"/>
       <input class="title-form form-fields" type="text" placeholder="Name your URL"/>
-      <input class="dropdown-form form-fields" type="text" placeholder="Folders"/>
-
+      <select class="dropdown-form form-fields" placeholder="Folders">
+        <option value="" disabled selected>Select your Folder</option>
+        <option value="food">Food</option>
+        <option value="cats">Cats</option>
+        <option value="knitting">Knitting</option>
+      </select>
       <article class="checkbox">
-        <input class="checkbox-form form-fields" type="checkbox" placeholder="Folders"/>
+        <input class="checkbox-form form-fields" type="checkbox"/>
         <p>Or Create a New Folder</p>
       </article>
 
       <input class="submit" type="submit" value="Shrink Me!"/>
     </form>
     </section>
+
+    <section class="folders">
+      <article class="heading">
+        <h2 class="folders-header">My Folders</h2>
+      </article>
+      <article class="folder-list">
+        <ul>
+          <li class="folder-list-item">Food <img class="arrow" src="./images/arrow.svg"></li>
+          <li class="folder-list-item">Cats <img class="arrow" src="./images/arrow.svg"></li>
+          <li class="folder-list-item">Knitting <img class="arrow" src="./images/arrow.svg"></li>
+        </ul>
+      </article>
+    </section>
+    <footer>
+      <h3 class="footer-title">JetFuel &copy;</h3>
+    </footer>
   </body>
   <script type="text/javascript" rel="./index.js"></script>
 </html>
