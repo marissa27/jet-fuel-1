@@ -19,6 +19,8 @@ app.get('/', (request, response ) => {
   })
 });
 
+
+// FOLDERS
 app.get('/api/folders', (request, response) => {
   const folders = app.locals.folders;
   response.json({ folders })
@@ -38,23 +40,15 @@ app.post('/api/folders', (request, response) => {
   response.status(201).json({ id, title })
 });
 
+app.get('/api/folders/:id', (request, response) => {
+  const { id } = request.params
+  const title = app.locals.folders[id]
+
+  if (!title) { return response.sendStatus(404) }
+
+  response.json({ id, title })
+});
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`)
 });
-
-// var express = require('express');
-// var app = express();
-//
-// app.use(express.static('public'));
-//
-// app.get('/', function (req, res) {
-//    res.sendFile('index.html');
-// })
-//
-// var server = app.listen(3000, function () {
-//    var host = server.address().address
-//    var port = server.address().port
-//
-//    console.log("Example app listening at http://%s:%s", host, port)
-//
-// })
