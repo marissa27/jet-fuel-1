@@ -19,7 +19,6 @@ app.get('/', (request, response ) => {
   })
 });
 
-
 // FOLDERS
 app.get('/api/folders', (request, response) => {
   const folders = app.locals.folders;
