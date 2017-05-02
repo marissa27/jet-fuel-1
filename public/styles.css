@@ -64,12 +64,25 @@ header {
   font-family: 'Slabo 27px', serif;
 }
 
+.folder-form-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+ .submit-folder {
+   background-color: #231F20;
+   color: #FFF;
+   border: none;
+   padding: 5px;
+ }
+
 .folder-list-item {
   background: url('./images/folder-closed.svg') no-repeat left;
   height: 25px;
   padding-left: 69px;
   padding-top: 9px;
-  margin: 35px 15px;
+  margin: 15px 15px;
 }
 
 .arrow {
@@ -79,7 +92,7 @@ header {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: #231F20;
   text-align: center;

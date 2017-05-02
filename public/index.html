@@ -19,11 +19,6 @@
         <option value="cats">Cats</option>
         <option value="knitting">Knitting</option>
       </select>
-      <article class="checkbox">
-        <input class="checkbox-form form-fields" type="checkbox"/>
-        <p>Or Create a New Folder</p>
-      </article>
-
       <input class="submit" type="submit" value="Shrink Me!"/>
     </form>
     </section>
@@ -32,11 +27,15 @@
       <article class="heading">
         <h2 class="folders-header">My Folders</h2>
       </article>
+      <article class="folder-form-section">
+        <form>
+          <input class="folder-form form-fields" type="text" placeholder="Make a new folder"/>
+          <input class="submit-folder" type="submit" value="Save!"/>
+        </form>
+      </article>
       <article class="folder-list">
         <ul>
           <li class="folder-list-item">Food <img class="arrow" src="./images/arrow.svg"></li>
-          <li class="folder-list-item">Cats <img class="arrow" src="./images/arrow.svg"></li>
-          <li class="folder-list-item">Knitting <img class="arrow" src="./images/arrow.svg"></li>
         </ul>
       </article>
     </section>
