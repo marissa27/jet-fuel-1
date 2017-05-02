@@ -13,10 +13,14 @@
     <form class="url-form">
       <input class="url-form form-fields" type="text" placeholder="Give me that URL"/>
       <input class="title-form form-fields" type="text" placeholder="Name your URL"/>
-      <input class="dropdown-form form-fields" type="text" placeholder="Folders"/>
-
+      <select class="dropdown-form form-fields" placeholder="Folders">
+        <option value="" disabled selected>Select your Folder</option>
+        <option value="food">Food</option>
+        <option value="cats">Cats</option>
+        <option value="knitting">Knitting</option>
+      </select>
       <article class="checkbox">
-        <input class="checkbox-form form-fields" type="checkbox" placeholder="Folders"/>
+        <input class="checkbox-form form-fields" type="checkbox"/>
         <p>Or Create a New Folder</p>
       </article>
 

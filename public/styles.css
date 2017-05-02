@@ -35,6 +35,17 @@ header {
   padding: 5px;
 }
 
+.dropdown-form {
+  -webkit-appearance: button;
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .submit {
   width: 100px;
   border: none;
