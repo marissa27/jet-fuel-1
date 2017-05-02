@@ -1,6 +1,6 @@
 # Jet Fuel
 
-Jet Fuel is a URL shortener application that was our first project building a backend in module 4. Jet Fuel allows users to create folders to store long, ugly URLs as shortened URLs. The main goal of this application is to redirect a requet at the shortened URL to their longer URL equivalent. Each shortened URL belings to a unique folder which is capable of storing any number of URLs. Our secondary goal is to track URL usage and provide popularity statistics. 
+Jet Fuel is a URL shortener application that was our first project building a backend in module 4. Jet Fuel allows users to create folders to store long, ugly URLs as shortened URLs. The main goal of this application is to redirect a requet at the shortened URL to their longer URL equivalent. Each shortened URL belongs to a unique folder which is capable of storing any number of URLs. Our secondary goal is to track URL usage and provide popularity statistics. 
 
 [Original Assignment](http://frontend.turing.io/projects/jet-fuel.html)
 
