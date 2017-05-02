@@ -1,3 +1,7 @@
+body {
+  font-family: 'Muli', sans-serif;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -7,6 +11,7 @@ header {
   background-color: #231F20;
   color: #FFF;
   font-size: 25px;
+  font-family: 'Slabo 27px', serif;
 }
 
 .form-section {
@@ -37,4 +42,41 @@ header {
   padding: 5px;
   background-color: #FF9280;
   color: #FFF;
+}
+
+.folders-header {
+  color: #FFF;
+  background-color: #FF9280;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  font-family: 'Slabo 27px', serif;
+}
+
+.folder-list-item {
+  background: url('./images/folder-closed.svg') no-repeat left;
+  height: 25px;
+  padding-left: 69px;
+  padding-top: 9px;
+  margin: 35px 15px;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #231F20;
+  text-align: center;
+  color: #FFF;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.footer-title {
+  font-family: 'Slabo 27px', serif;
 }
