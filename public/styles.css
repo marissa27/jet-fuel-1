@@ -15,7 +15,7 @@ header {
 }
 
 .form-section {
-  padding: 0px 20px;
+  padding: 0 10%;
   background-color: #231F20;
 }
 
@@ -80,6 +80,7 @@ header {
 .folder-list {
   overflow: auto;
   height: 300px;
+  padding: 0 5%;
 }
 
 .folder-list-item {
