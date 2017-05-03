@@ -77,6 +77,11 @@ header {
    padding: 5px;
  }
 
+.folder-list {
+  overflow: auto;
+  height: 300px;
+}
+
 .folder-list-item {
   background: url('./images/folder-closed.svg') no-repeat left;
   height: 25px;
