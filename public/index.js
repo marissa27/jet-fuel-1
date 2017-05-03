@@ -6,9 +6,16 @@ const $submitFolder = $('.submit-folder');
 
 $submitFolder.on('click', (e) => {
   e.preventDefault();
-  const $folderTitle = $('.folder-form').val()
-  addFolders($folderTitle)
+  const $folderTitleValue = $('.folder-form').val();
+
+  addFolders($folderTitleValue);
+  clearFolderFields();
 });
+
+clearFolderFields = () => {
+  const $folderTitle = $('.folder-form');
+  $folderTitle.val('');
+};
 
 addFolders = (value) => {
    fetch("/api/folders", {
@@ -17,13 +24,15 @@ addFolders = (value) => {
      body:
        JSON.stringify({ 'title': value })
    }).then((response) => {
-     return response
-   }).then((response) => {
-     getFolders();
+     return response.json()
+   }).then((json) => {
+     appendDropDown(json.title);
+     appendFolders(json.title);
+     return json
    }).catch((error) => {
      console.log('error in addFolders');
    })
- }
+ };
 
  getFolders = () => {
    fetch("/api/folders", {
@@ -31,33 +40,28 @@ addFolders = (value) => {
    }).then((response) => {
      return response.json()
    }).then((json) => {
-     appendDropDown(json.folders);
-     appendFolders(json.folders);
+     const folder = Object.keys(json.folders)
+     folder.map((key) => {
+       appendDropDown(json.folders[key]);
+       appendFolders(json.folders[key]);
+     });
    }).catch((error) => {
      console.log('error in getFolders')
-   })
- }
+   });
+ };
 
  appendDropDown = (folders) => {
-   const folder = Object.keys(folders)
-   folder.map((key) => {
-     console.log(folders[key]);
      const $dropDown = $('.dropdown-form');
      $dropDown.append(
-       `<option value="${folders[key]}">${folders[key]}</option>
+       `<option value="${folders}">${folders}</option>
        `
      )
-   })
- }
+ };
 
  appendFolders = (folders) => {
-   const folder = Object.keys(folders)
-   folder.map((key) => {
-     console.log(folders[key]);
      const $dropDown = $('ul');
      $dropDown.prepend(
-       `<li class="folder-list-item">${folders[key]} <img class="arrow" src="./images/arrow.svg"></li>
+       `<li class="folder-list-item">${folders} <img class="arrow" src="./images/arrow.svg"></li>
        `
      )
-   })
- }
+ };
