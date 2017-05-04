@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const md5 = require('md5');
 
 const environment = 'development';
 const configuration = require('./knexfile')[environment];
@@ -73,7 +74,7 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
   const urlObj = {
     title: request.body.title,
     fullURL: request.body.fullURL,
-    shortURL: request.body.fullURL,
+    shortURL: md5('request.body.fullURL').slice(0,5),
     // visited: request.body.visited,
     visited: 0,
     folder_id: request.params.folder_id

@@ -87,7 +87,6 @@ addFolders = (value) => {
      )
  };
 
-
 $('ul').on('click', 'li', (e) => {
   const id = e.target.dataset.id
   getUrls(id);
