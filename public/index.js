@@ -26,8 +26,8 @@ addFolders = (value) => {
    }).then((response) => {
      return response.json()
    }).then((json) => {
-     appendDropDown(json.title);
-     appendFolders(json.title);
+     appendDropDown(json.title, json.id);
+     appendFolders(json.title, json.id);
      return json
    }).catch((error) => {
      console.log('error in addFolders');
@@ -41,26 +41,47 @@ addFolders = (value) => {
      return response.json()
    }).then((json) => {
      const folder = json.map((val, i) => {
-          appendDropDown(val.title);
-          appendFolders(val.title);
+          appendDropDown(val.title, val.id);
+          appendFolders(val.title, val.id);
      });
    }).catch((error) => {
      console.log('error in getFolders')
    });
  };
 
- appendDropDown = (folders) => {
+ addURL = (title, fullURL, id) => {
+   fetch('/api/v1/folders/:folder_id/urls', {
+     method: 'POST',
+     body: JSON.stringify({
+       title,
+       fullURL,
+       folder_id: id
+     })
+   }).then(response => response.json())
+      .catch(error => console.log('error in addURL'))
+ }
+
+ appendDropDown = (folders, id) => {
      const $dropDown = $('.dropdown-form');
      $dropDown.append(
-       `<option value="${folders}">${folders}</option>
+       `<option class="${folders}" data-id="${id}" value="${folders}">${folders}</option>
        `
      )
  };
 
- appendFolders = (folders) => {
+ $('.submit').on('click', (e) => {
+   e.preventDefault();
+   const $urlInput = $('.url-form-input').val();
+   const $title = $('.title-form').val();
+   const $folderID = $('.dropdown-form :selected').data('id');
+
+   addURL($title, $urlInput, $folderID);
+ });
+
+ appendFolders = (folders, id) => {
      const $dropDown = $('ul');
      $dropDown.prepend(
-       `<li class="folder-list-item">${folders} <img class="arrow" src="./images/arrow.svg"></li>
+       `<li data-id="${id}" class="folder-list-item">${folders} <img class="arrow" src="./images/arrow.svg"></li>
        `
      )
  };
