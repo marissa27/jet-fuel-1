@@ -18,7 +18,7 @@ clearFolderFields = () => {
 };
 
 addFolders = (value) => {
-   fetch("/api/folders", {
+   fetch("/api/v1/folders", {
      method: "POST",
      headers: {'Content-type': 'application/json'},
      body:
@@ -35,7 +35,7 @@ addFolders = (value) => {
  };
 
  getFolders = () => {
-   fetch("/api/folders", {
+   fetch("/api/v1/folders", {
      method: "GET"
    }).then((response) => {
      return response.json()
