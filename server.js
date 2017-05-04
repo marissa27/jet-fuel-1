@@ -38,8 +38,7 @@ app.post('/api/v1/folders', (request, response) => {
 
   database('folders').insert(folder, 'id')
     .then(folder => {
-      console.log('folder: ', folder);
-      response.status(201).json({ id: folder[0] })
+      response.status(201).json({ id: folder[0], title: request.body.title })
     })
     .catch(error => {
       console.error('error: ', error);

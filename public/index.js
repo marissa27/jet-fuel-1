@@ -40,10 +40,9 @@ addFolders = (value) => {
    }).then((response) => {
      return response.json()
    }).then((json) => {
-     const folder = Object.keys(json.folders)
-     folder.map((key) => {
-       appendDropDown(json.folders[key]);
-       appendFolders(json.folders[key]);
+     const folder = json.map((val, i) => {
+          appendDropDown(val.title);
+          appendFolders(val.title);
      });
    }).catch((error) => {
      console.log('error in getFolders')
