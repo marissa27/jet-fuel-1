@@ -50,12 +50,14 @@ addFolders = (value) => {
  };
 
  addURL = (title, fullURL, id) => {
-   fetch('/api/v1/folders/:folder_id/urls', {
+   console.log(title, fullURL, id);
+   fetch(`/api/v1/folders/${id}/urls`, {
      method: 'POST',
+     headers: {'Content-type': 'application/json'},
      body: JSON.stringify({
-       title,
-       fullURL,
-       folder_id: id
+       "title": title,
+       "fullURL": fullURL,
+       "folder_id": id
      })
    }).then(response => response.json())
       .catch(error => console.log('error in addURL'))
@@ -74,7 +76,6 @@ addFolders = (value) => {
    const $urlInput = $('.url-form-input').val();
    const $title = $('.title-form').val();
    const $folderID = $('.dropdown-form :selected').data('id');
-
    addURL($title, $urlInput, $folderID);
  });
 
@@ -98,7 +99,6 @@ getUrls = (id) => {
   }).then((response) => {
     return response.json()
   }).then((json) => {
-    console.log(json);
     const urls = json.map((val, i) => {
       console.log(val.title, val.fullURL);
     })
