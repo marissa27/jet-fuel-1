@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
         }, 'id')
         .then(folder => {
           return knex('urls').insert([
-            { title: 'Pinterest', 'full-url': 'www.pinterest.com', 'short-url': 'tinyurl.com', visited: 0, folder_id: folder[0] }
+            { title: 'Pinterest', 'fullURL': 'www.pinterest.com', 'shortURL': 'tinyurl.com', visited: 0, folder_id: folder[0] }
           ])
         })
       ])
