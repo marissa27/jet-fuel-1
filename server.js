@@ -75,7 +75,6 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
     title: request.body.title,
     fullURL: request.body.fullURL,
     shortURL: md5('request.body.fullURL').slice(0,5),
-    // visited: request.body.visited,
     visited: 0,
     folder_id: request.params.folder_id
   };

@@ -50,7 +50,6 @@ addFolders = (value) => {
  };
 
  addURL = (title, fullURL, id) => {
-   console.log(title, fullURL, id);
    fetch(`/api/v1/folders/${id}/urls`, {
      method: 'POST',
      headers: {'Content-type': 'application/json'},
@@ -83,6 +82,7 @@ addFolders = (value) => {
      const $dropDown = $('ul');
      $dropDown.prepend(
        `<li data-id="${id}" class="folder-list-item">${folders} <img class="arrow" src="./images/arrow.svg"></li>
+       <div class="url-toggle ${id}" display="none"></div>
        `
      )
  };
@@ -90,7 +90,21 @@ addFolders = (value) => {
 $('ul').on('click', 'li', (e) => {
   const id = e.target.dataset.id
   getUrls(id);
+  // e.closest(`.${id}`).toggle()
 });
+
+appendURL = (obj) => {
+  console.log(obj)
+  const $urlList = $(`.${obj.folder_id}`);
+  $urlList.prepend(
+    `<div>
+      <h3>${obj.title}</h3>
+      <h3>${obj.visits}</h3>
+      <h3>${obj.fullURL}</h3>
+      <h3>${obj.shortURL}</h3>
+    </div>`
+  )
+};
 
 getUrls = (id) => {
   fetch(`/api/v1/folders/${id}/urls`, () => {
@@ -99,7 +113,7 @@ getUrls = (id) => {
     return response.json()
   }).then((json) => {
     const urls = json.map((val, i) => {
-      console.log(val.title, val.fullURL);
+      appendURL(val);
     })
     return urls
   }).catch((error) => {
