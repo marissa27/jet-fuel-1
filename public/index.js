@@ -85,3 +85,25 @@ addFolders = (value) => {
        `
      )
  };
+
+
+$('ul').on('click', 'li', (e) => {
+  const id = e.target.dataset.id
+  getUrls(id);
+});
+
+getUrls = (id) => {
+  fetch(`/api/v1/folders/${id}/urls`, () => {
+    method: "GET"
+  }).then((response) => {
+    return response.json()
+  }).then((json) => {
+    console.log(json);
+    const urls = json.map((val, i) => {
+      console.log(val.title, val.fullURL);
+    })
+    return urls
+  }).catch((error) => {
+    console.log('error in getURLS')
+  });
+};
