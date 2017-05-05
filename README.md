@@ -30,13 +30,14 @@ Testing: Mocha, Chai, Chaihttp
 
 ## Running the tests
 
-#### Mocha/Chai were used in the testing of this application. 
+Mocha/Chai were used in the testing of this application. 
 
 $ mocha
 
 ## Deployment
 
 We used Heroku for deployment of our application. 
+[Jet-Fuel](https://jetfuelshorturl.herokuapp.com/)
 
 ## Design
 
