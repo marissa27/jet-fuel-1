@@ -41,6 +41,11 @@ We used Heroku for deployment of our application.
 [Jet-Fuel](https://jetfuelshorturl.herokuapp.com/)
 
 ## Design
+![wireframe](http://i.imgur.com/kX9X3A7.png)
+
+We focused our app heavily on the mobile view for the user and adapted that for the bigger screens. We wanted a very clean and straight forward look so the user could easily go in, see their folders and add links all day everyday.
+
+If we had more time we would expand the app into being able to click on a folder that goes to its own page that displays its URLs, but always maintaining the header form so URLs can be added from anywhere in the app.
 
 ## Authors
 
