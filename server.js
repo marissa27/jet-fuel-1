@@ -74,7 +74,6 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
   const urlObj = {
     title: request.body.title,
     fullURL: request.body.fullURL,
-    shortURL: md5(url).slice(0,5),
     visited: 0,
     folder_id: request.params.folder_id
   };
@@ -88,6 +87,14 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
       console.error('error: ', error)
     })
   })
+});
+
+app.get('/:id', (request, response) => {
+  database('urls').where('id', request.params.id).select('fullURL')
+  .then((urls => {
+    console.log(urls)
+    response.redirect('http://' + urls[0].fullURL)
+  }))
 });
 
 

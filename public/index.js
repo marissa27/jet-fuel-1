@@ -98,6 +98,7 @@ $('ul').on('click', 'li', (e) => {
 });
 
 appendURL = (urls) => {
+  console.log(document.URL);
   $('.links').empty()
   return urls.map((val, i) => {
   const $urlList = $(`.${val.folder_id}`);
@@ -106,7 +107,7 @@ appendURL = (urls) => {
       <h3>${val.title}</h3>
       <h3>${val.visited}</h3>
       <h3>${val.fullURL}</h3>
-      <h3>${val.shortURL}</h3>
+      <a target="_blank" href="/${val.id}">${document.URL + val.id}<a>
       </div>`
     )
   });
