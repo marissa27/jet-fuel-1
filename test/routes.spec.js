@@ -58,8 +58,6 @@ describe('Client Routes', () => {
 
 describe('API Routes', () => {
 
-
-
   describe('GET /api/v1/students', () => {
     it.skip('should return all of the students', (done) => {
       chai.request(server)

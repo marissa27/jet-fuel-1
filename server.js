@@ -22,7 +22,6 @@ app.get('/', (request, response ) => {
   })
 });
 
-// FOLDER METHODS
 app.get('/api/v1/folders', (request, response) => {
   database('folders').select()
     .then(folders => response.status(200).json(folders))
@@ -52,7 +51,6 @@ app.get('/api/v1/folders/:id', (request, response) => {
   });
 });
 
-// URL METHODS
 app.get('/api/v1/urls', (request, response) => {
   database('urls').select()
   .then(urls => response.status(200).json(urls))
@@ -74,7 +72,6 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
   const urlObj = {
     title: request.body.title,
     fullURL: request.body.fullURL,
-    shortURL: md5('request.body.fullURL').slice(0,5),
     visited: 0,
     folder_id: request.params.folder_id
   };
@@ -90,6 +87,12 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
   })
 });
 
+app.get('/:id', (request, response) => {
+  database('urls').where('id', request.params.id).select('fullURL')
+  .then((urls => {
+    response.redirect('http://' + urls[0].fullURL)
+  }))
+});
 
 if (!module.parent) {
   app.listen(app.get('port'), () => {
