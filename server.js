@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 
-const environment = 'development';
+const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 
@@ -32,13 +32,19 @@ app.post('/api/v1/folders', (request, response) => {
   const folder = request.body;
   const title = request.body.title;
 
-  database('folders').insert(folder, 'id')
-  .then(folder => {
-    response.status(201).json({ id: folder[0], title: title })
-  })
-  .catch(error => {
-    console.error('error: ', error);
-  })
+  if (!title) {
+    response.status(422).send({
+      error: 'You are missing data!'
+    })
+  } else {
+    database('folders').insert(folder, 'id')
+    .then(folder => {
+        response.status(201).json({ id: folder[0], title: title })
+    })
+    .catch(error => {
+      console.error('error: ', error);
+    })
+  }
 });
 
 app.get('/api/v1/folders/:id', (request, response) => {
@@ -75,16 +81,21 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
     visited: 0,
     folder_id: request.params.folder_id
   };
-  database('urls').insert(urlObj)
-  .then(() => {
-    database('urls').where('folder_id', request.params.folder_id).select()
-      .then(url => {
-        response.status(201).json(url);
-      })
-      .catch(error => {
-      console.error('error: ', error)
+  if (!urlObj.title) {
+    response.status(422).send({
+      error: 'You are missing data!'
     })
-  })
+  } else {
+    database('urls').insert(urlObj)
+    .then(() => {
+      database('urls').where('folder_id', request.params.folder_id).select()
+        .then(url => {
+          response.status(201).json(url);
+        })
+        .catch(error => {
+        console.error('error: ', error)
+      })
+  })}
 });
 
 app.get('/:id', (request, response) => {
