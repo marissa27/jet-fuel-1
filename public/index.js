@@ -93,21 +93,18 @@ addFolders = (value) => {
 
 $('ul').on('click', 'li', (e) => {
   const id = e.target.dataset.id
-  console.log(id);
   getUrls(id);
 });
 
 appendURL = (urls) => {
-  console.log(document.URL);
   $('.links').empty()
   return urls.map((val, i) => {
   const $urlList = $(`.${val.folder_id}`);
     $urlList.prepend(
       `<div class='links'>
-      <h3>${val.title}</h3>
-      <h3>${val.visited}</h3>
-      <h3>${val.fullURL}</h3>
-      <a target="_blank" href="/${val.id}">${document.URL + val.id}<a>
+      <h3 class="link-title">${val.title}</h3>
+      <h3 class-"link-visited">${val.visited}</h3>
+      <a class="link-short-url" target="_blank" href="/${val.id}">${document.URL + val.id}<a>
       </div>`
     )
   });
