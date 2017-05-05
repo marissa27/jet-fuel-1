@@ -105,7 +105,6 @@ app.get('/:id', (request, response) => {
     .then(urls => {
       response.redirect('http://' + urls[0].fullURL)
     })
-    console.log(urls[0].visited);
   }))
 });
 
