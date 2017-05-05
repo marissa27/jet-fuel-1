@@ -101,32 +101,14 @@ app.post('/api/v1/folders/:folder_id/urls', (request, response) => {
 app.get('/:id', (request, response) => {
   database('urls').where('id', request.params.id).select()
   .then((urls => {
-    // updateVisit(urls[0].id, urls[0].visited, urls[0].folder_id)
-    response.redirect('http://' + urls[0].fullURL)
+    database('urls').where('id', urls[0].id).update('visited', urls[0].visited+=1)
+    .then(urls => {
+      response.redirect('http://' + urls[0].fullURL)
+    })
+    console.log(urls[0].visited);
   }))
 });
 
-// :( FAILED ATTEMPT FOR PATCH FOR VISITED INCREMENTING
-// updateVisit = (id, visits, folder_id) => {
-//   console.log(id, visits);
-//   app.patch(`/api/v1/folders/${folder_id}/urls/`, (request, response) => {
-//     const url = request.body;
-//     const urlObj = {
-//       visited: visits++,
-//     };
-//     database('urls').insert(urlObj)
-//     .then(() => {
-//       database('urls').where('folder_id', request.params.folder_id).select()
-//       .then(url => {
-//         response.status(200).json(url);
-//         console.log(url)
-//       })
-//       .catch(error => {
-//         console.error('error: ', error)
-//       })
-//     })
-//   });
-// }
 
 if (!module.parent) {
   app.listen(app.get('port'), () => {
