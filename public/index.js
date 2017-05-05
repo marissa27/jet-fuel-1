@@ -82,7 +82,7 @@ addFolders = (value) => {
      const $dropDown = $('ul');
      $dropDown.prepend(
        `<li data-id="${id}" class="folder-list-item">${folders} <img class="arrow" src="./images/arrow.svg"></li>
-       <div class="url-toggle ${id}" display="none"></div>
+       <div class="url-toggle ${id}"></div>
        `
      )
  };
@@ -90,20 +90,34 @@ addFolders = (value) => {
 $('ul').on('click', 'li', (e) => {
   const id = e.target.dataset.id
   getUrls(id);
-  // e.closest(`.${id}`).toggle()
+
+  // make call earlier and hide the divs in css.
+  // toggle those on click.
+  // maybe run call on submit button?? add new links
+
+  // if ($(`.${id}`).css("display","none")) {
+  //   console.log('no length');
+  //   $(`.${id}`).css("display","")
+  //
+  // } else {
+  //   console.log($(`.${id} div`).length);
+  //   console.log('length');
+  // }
+  // // $(`.${id}`).css("display","none")
+  $(`.${id}`).slideToggle( "fast" );
 });
 
 appendURL = (obj) => {
   console.log(obj)
   const $urlList = $(`.${obj.folder_id}`);
-  $urlList.prepend(
-    `<div>
+    $urlList.prepend(
+      `<div>
       <h3>${obj.title}</h3>
-      <h3>${obj.visits}</h3>
+      <h3>${obj.visited}</h3>
       <h3>${obj.fullURL}</h3>
       <h3>${obj.shortURL}</h3>
-    </div>`
-  )
+      </div>`
+    )
 };
 
 getUrls = (id) => {
