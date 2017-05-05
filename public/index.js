@@ -70,11 +70,18 @@ addFolders = (value) => {
      )
  };
 
+ clearURLFields = () => {
+  $('.url-form-input').val('');
+  $('.title-form').val('');
+  $('.dropdown-form').val('');
+ };
+
  $('.submit').on('click', (e) => {
    e.preventDefault();
    const $urlInput = $('.url-form-input').val();
    const $title = $('.title-form').val();
    const $folderID = $('.dropdown-form :selected').data('id');
+   clearURLFields();
    addURL($title, $urlInput, $folderID);
  });
 
