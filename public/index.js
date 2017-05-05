@@ -96,35 +96,23 @@ addFolders = (value) => {
 
 $('ul').on('click', 'li', (e) => {
   const id = e.target.dataset.id
+  console.log(id);
   getUrls(id);
-
-  // make call earlier and hide the divs in css.
-  // toggle those on click.
-  // maybe run call on submit button?? add new links
-
-  // if ($(`.${id}`).css("display","none")) {
-  //   console.log('no length');
-  //   $(`.${id}`).css("display","")
-  //
-  // } else {
-  //   console.log($(`.${id} div`).length);
-  //   console.log('length');
-  // }
-  // // $(`.${id}`).css("display","none")
-  $(`.${id}`).slideToggle( "fast" );
 });
 
-appendURL = (obj) => {
-  console.log(obj)
-  const $urlList = $(`.${obj.folder_id}`);
+appendURL = (urls) => {
+  $('.links').empty()
+  return urls.map((val, i) => {
+  const $urlList = $(`.${val.folder_id}`);
     $urlList.prepend(
-      `<div>
-      <h3>${obj.title}</h3>
-      <h3>${obj.visited}</h3>
-      <h3>${obj.fullURL}</h3>
-      <h3>${obj.shortURL}</h3>
+      `<div class="links">
+      <h3>${val.title}</h3>
+      <h3>${val.visited}</h3>
+      <h3>${val.fullURL}</h3>
+      <h3>${val.shortURL}</h3>
       </div>`
     )
+  });
 };
 
 getUrls = (id) => {
@@ -133,10 +121,7 @@ getUrls = (id) => {
   }).then((response) => {
     return response.json()
   }).then((json) => {
-    const urls = json.map((val, i) => {
-      appendURL(val);
-    })
-    return urls
+      return appendURL(json)
   }).catch((error) => {
     console.log('error in getURLS')
   });
