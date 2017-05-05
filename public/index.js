@@ -102,9 +102,9 @@ appendURL = (urls) => {
   const $urlList = $(`.${val.folder_id}`);
     $urlList.prepend(
       `<div class='links'>
-      <h3 class="link-title">${val.title}</h3>
-      <h3 class-"link-visited">${val.visited}</h3>
-      <a class="link-short-url" target="_blank" href="/${val.id}">${document.URL + val.id}<a>
+      <h3 class="link-title link-info">${val.title}</h3>
+      <h3 class="link-visited link-info">Visits: ${val.visited}</h3>
+      <a class="link-short-url link-info" target="_blank" href="/${val.id}">${document.URL + val.id}<a>
       </div>`
     )
   });
