@@ -26,28 +26,17 @@ Client-side: Javascript/jQuery
 
 Server-side: Postgres, Knex, Node.js, Express 
 
-
-# MAYBE TESTING OR WEBPACK STUFF 
-# MAYBE NODE.JS TUTORIAL STUFF???
-
-### Installing
-
-[Node.js](https://nodejs.org/en/download/)
-
-$ npm install express --save
-
-# MAYBE TESTING OR WEBPACK???????
-# MAYBE NODE.JS TUTORIAL STUFF???
+Testing: Mocha, Chai, Chaihttp
 
 ## Running the tests
 
 #### Mocha/Chai were used in the testing of this application. 
 
-$ npm test 
+$ mocha
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+We used Heroku for deployment of our application. 
 
 ## Design
 
