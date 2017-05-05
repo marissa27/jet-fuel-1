@@ -97,7 +97,7 @@ $('ul').on('click', 'li', (e) => {
 });
 
 appendURL = (urls) => {
-  $('.links').empty()
+  $('.url-toggle').empty()
   return urls.map((val, i) => {
   const $urlList = $(`.${val.folder_id}`);
     $urlList.prepend(
