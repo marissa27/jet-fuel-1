@@ -79,7 +79,7 @@ header {
 
 .folder-list {
   overflow: auto;
-  height: 300px;
+  height: 345px;
   padding: 0 5%;
 }
 
@@ -96,6 +96,27 @@ header {
   height: 20px;
   float: right;
 }
+
+.links {
+  margin-bottom: 20px;
+  border-bottom: 1px solid grey;
+  padding: 0 0 16px 0;
+}
+
+.link-info {
+  font-size: 17px;
+  padding-left: 56px;
+  margin-bottom: 12px;
+}
+
+.link-title {
+  font-family: 'Slabo 27px', serif;
+  font-size: 20px;
+  padding-left: 56px;
+  font-weight: bold;
+}
+
+
 
 footer {
   position: fixed;
