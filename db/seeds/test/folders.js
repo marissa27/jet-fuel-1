@@ -6,11 +6,12 @@ exports.seed = function(knex, Promise) {
     .then(() => {
       return Promise.all([
         knex('folders').insert({
-          title: 'Crafts'
+          title: 'Crafts',
+          id: 1
         }, 'id')
         .then(folder => {
           return knex('urls').insert([
-            { title: 'TEST', 'fullURL': 'www.pinterest.com', 'shortURL': 'tinyurl.com', visited: 0, folder_id: folder[0] }
+            { title: 'TEST', 'fullURL': 'www.pinterest.com', 'shortURL': 'tinyurl.com', visited: 0, folder_id: folder[0], id:1 }
           ])
         })
       ])
