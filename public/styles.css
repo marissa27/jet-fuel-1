@@ -116,7 +116,14 @@ header {
   font-weight: bold;
 }
 
+.link-date-added {
+  font-style: italic;
+  color: grey;
+}
 
+.link-added {
+  margin-top: 10px;
+}
 
 footer {
   position: fixed;
